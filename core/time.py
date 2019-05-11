@@ -208,12 +208,12 @@ def human_timedelta(dt, *, source=None):
         suffix = ''
     else:
         delta = relativedelta(now, dt)
-        suffix = ' ago'
+        suffix = 'hace '
 
     if delta.microseconds and delta.seconds:
         delta = delta + relativedelta(seconds=+1)
 
-    attrs = ['years', 'months', 'days', 'hours', 'minutes', 'seconds']
+    attrs = ['años', 'meses', 'das', 'horas', 'minutos', 'segundos']
 
     output = []
     for attr in attrs:
@@ -229,7 +229,7 @@ def human_timedelta(dt, *, source=None):
     if not output:
         return 'now'
     if len(output) == 1:
-        return output[0] + suffix
+        return  suffix + output[0]
     if len(output) == 2:
-        return f'{output[0]} and {output[1]}{suffix}'
-    return f'{output[0]}, {output[1]} and {output[2]}{suffix}'
+        return f'{suffix}{output[0]} and {output[1]}'
+    return f'{suffix}{output[0]}, {output[1]} and {output[2]}'
