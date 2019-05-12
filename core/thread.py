@@ -751,7 +751,7 @@ class ThreadManager(ThreadManagerABC):
             embed.description += f', se unió al servidor {days(joined)}'
 
             if member.nick:
-                embed.add_field(name='Apodo',
+                embed.add_field(name='Apodo ',
                                 value=member.nick,
                                 inline=True)
             if role_names:
